@@ -1,8 +1,16 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Cours from '../src/models/Cours'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
+
+  const titre = () => {
+    const cours = new Cours({ titre: "mon premier cours" });
+    cours.titre = "   azddazd    .";
+    return cours.titre;
+  }
+
   return (
     <div className={styles.container}>
       <Head>
@@ -12,7 +20,8 @@ export default function Home() {
       </Head>
       <main>
         <h1>Markdown App</h1>
-        <p>notre application commence ici...</p>
+        <p>notre application commence ici...☕️</p>
+        <p>{titre()}</p>
       </main>
     </div>
   )
