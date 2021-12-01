@@ -10,19 +10,57 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
+model Utilisateurs {
+  idRole   Int?
   email    String  @unique
   password String
   id       Int     @default(autoincrement()) @id
   name     String?
-  posts    Post[]
+  role     Roles?  @relation(fields: [idRole], references: [id])
 }
 
-model Post {
-  authorId  Int?
-  content   String?
+model Cours {
+  idAuteur        Int?
+  contenuMd       String?
+  resume          String?
+  id              Int     @default(autoincrement()) @id
+  estArchive      Boolean @default(false)
+  titre           String
+  dateRedaction   Int?
+  dateParution    Int?
+  nbConssultation Int?
+  author          User?   @relation(fields: [idAuteur], references: [id])
+}
+
+model Roles {
+  role      String?
   id        Int     @default(autoincrement()) @id
-  published Boolean @default(false)
   title     String
-  author    User?   @relation(fields: [authorId], references: [id])
+  author    User?   @relation(fields: [idAuteur], references: [id])
+}
+
+model Categories {
+  idCategorieMere   Int?
+  id                Int     @default(autoincrement()) @id
+  libelle           String
+  categorieMere     Categories?   @relation(fields: [idCategorieMere], references: [id])
+}
+
+model notesCours {
+  idUtilisateur     Int?
+  idCour            Int?
+  id                Int     @default(autoincrement()) @id
+  annotation        String?
+  date              Int?
+  note              Int?
+  utilisateur       Utilisateurs?   @relation(fields: [idUtilisateur], references: [id])
+  cour              Cours?   @relation(fields: [idCour], references: [id])
+}
+
+model coursCategories {
+  idCategorie       Int?
+  idCour            Int?
+  id                Int     @default(autoincrement()) @id
+  categorie         Categories?   @relation(fields: [idCategorie], references: [id])
+  cour              Cours?   @relation(fields: [idCour], references: [id])
 }
