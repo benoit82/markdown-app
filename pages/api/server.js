@@ -322,7 +322,7 @@ export const config = {
     bodyParser: false,
   },
 };
-const server = new ApolloServer({ schema });
+const server = new ApolloServer({ cors: true, schema });
 const startServer = server.start();
 
 export default async function handler(req, res) {
