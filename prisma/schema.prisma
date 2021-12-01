@@ -1,0 +1,72 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Utilisateur {
+  idRole     Int?
+  email      String       @unique
+  password   String
+  id         Int          @id @default(autoincrement())
+  name       String?
+  role       Role?        @relation(fields: [idRole], references: [id])
+  Cours      Cours[]
+  notesCours notesCours[]
+}
+
+model Cours {
+  idAuteur        Int?
+  contenuMd       String?
+  resume          String?
+  id              Int              @id @default(autoincrement())
+  estArchive      Boolean          @default(false)
+  titre           String
+  dateRedaction   Int?
+  dateParution    Int?
+  nbConssultation Int?
+  author          Utilisateur?     @relation(fields: [idAuteur], references: [id])
+  notesCours      notesCours[]
+  coursCategorie  coursCategorie[]
+}
+
+model Role {
+  role        String?
+  id          Int           @id @default(autoincrement())
+  title       String
+  Utilisateur Utilisateur[]
+}
+
+model Categorie {
+  idCategorieMere Int?
+  id              Int              @id @default(autoincrement())
+  libelle         String
+  categorieMere   Categorie?       @relation("CategorieHistory", fields: [idCategorieMere], references: [id])
+  Categorie       Categorie[]      @relation("CategorieHistory")
+  coursCategorie  coursCategorie[]
+}
+
+model notesCours {
+  idUtilisateur Int?
+  idCour        Int?
+  id            Int          @id @default(autoincrement())
+  annotation    String?
+  date          Int?
+  note          Int?
+  utilisateur   Utilisateur? @relation(fields: [idUtilisateur], references: [id])
+  cour          Cours?       @relation(fields: [idCour], references: [id])
+}
+
+model coursCategorie {
+  idCategorie Int?
+  idCour      Int?
+  id          Int        @id @default(autoincrement())
+  categorie   Categorie? @relation(fields: [idCategorie], references: [id])
+  cour        Cours?     @relation(fields: [idCour], references: [id])
+}

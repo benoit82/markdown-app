@@ -6,6 +6,12 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 npm i
 ```
 
+Il faut également ajouter manuellement un fichier `.env` à la racine du projet avec en propriété `DATABASE_URL` comme par exemple :
+
+```bash
+
+```
+
 ## Getting Started
 
 First, run the development server:

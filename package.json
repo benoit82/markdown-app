@@ -5,7 +5,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate": "npm -s run generate:prisma && npm -s run generate:nexus",
+    "dev:migrate": "npx prisma db push",
+    "prisma:studio": "npx prisma studio",
+    "generate:prisma": "prisma generate",
+    "generate:nexus": "ts-node --transpile-only -P nexus.tsconfig.json pages/api"
   },
   "dependencies": {
     "next": "12.0.4",
@@ -13,7 +18,9 @@
     "react-dom": "17.0.2"
   },
   "devDependencies": {
+    "@prisma/client": "^3.6.0",
     "eslint": "7.32.0",
-    "eslint-config-next": "12.0.4"
+    "eslint-config-next": "12.0.4",
+    "prisma": "^3.6.0"
   }
 }
