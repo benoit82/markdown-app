@@ -12,6 +12,7 @@ export default function Login() {
     const pageTitle = 'Page de connection';
     const headProps = { pageTitle, metaName: 'LoginPage', metaContent: pageTitle };
 
+    // TODO : resetUser = new Utilisateur(), to be implemented
     const resetUser = { username: '', password: ''};
     const [user, setUser] = useState(resetUser);
 
@@ -26,6 +27,7 @@ export default function Login() {
     const handleSubmitForm = (event) => {
         event.preventDefault();
         console.log(user);
+        // TODO : envoyer les données users vers l'API
     }
 
     const {username, password} = user;

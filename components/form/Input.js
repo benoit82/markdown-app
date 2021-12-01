@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 const Input = (props) => {
 
-    const {labelText = 'lol', name, ... inputProps} = props;
+    const {labelText, name, ... inputProps} = props;
     return (
         <div className={stylesForm.inputGroup}>
             <label htmlFor={name}>{labelText}</label>
