@@ -7,8 +7,10 @@ body {
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+  color: #259ad8;
+  text-decoration: underline;
+  font-weight: 300;
+  font-style: italic;
 }
 
 * {
