@@ -6,6 +6,12 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+.container {
+  padding: 0 2rem;
+  max-width: 100wh;
+  min-height: 100vh;
+}
+
 a {
   color: #259ad8;
   text-decoration: underline;

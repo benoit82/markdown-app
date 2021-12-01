@@ -1,0 +1,26 @@
+.menuApp {
+    width: 100%;
+}
+
+.listGroup {
+    display: flex;
+    list-style: none;
+    column-gap: 0.6rem;
+}
+
+.listGroup li {
+    display: inline-block;
+    background-color: #404140;
+    border-radius: 3px;
+    
+}
+
+.activeLink {
+    background-color: #06506d;
+}
+
+.listGroup a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem;
+}
