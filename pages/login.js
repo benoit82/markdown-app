@@ -40,7 +40,7 @@ export default function Login() {
                 <Input name="username" labelText="Utilisateur" type="text" id="username" value={username} onChange={handleChange} required />
                 <Input name="password" labelText="mot de passe" type="password" id="password" value={password} onChange={handleChange} required />
                 <div className={stylesForm.btnGroup}>
-                    <Button type="submit" name="submitBtn" id="submitBtn" />
+                    <Button type="submit" name="submitBtn" id="submitBtn" value="Envoyer" />
                 </div>
                 <div className={stylesForm.helperGroup}>
                     <Link href="/resetpassword">
