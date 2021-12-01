@@ -1,9 +1,9 @@
 import { withApollo } from "@apollo/client";
 
-const IndexPage = () => (
+const TestApollo = () => (
   <>
     <h1>Hello Next.js 👋</h1>
   </>
 );
 
-export default withApollo(IndexPage);
+export default withApollo(TestApollo);

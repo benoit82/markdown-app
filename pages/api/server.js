@@ -322,7 +322,13 @@ export const config = {
     bodyParser: false,
   },
 };
+const server = new ApolloServer({ schema });
+const startServer = server.start();
 
-export default new ApolloServer({ schema }).createHandler({
-  path: "/api",
-});
+export default async function handler(req, res) {
+
+  await startServer;
+  await server.createHandler({
+    path: "/api/server",
+  })(req, res);
+}
