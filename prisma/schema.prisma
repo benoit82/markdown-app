@@ -10,13 +10,13 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Utilisateurs {
+model Utilisateur {
   idRole   Int?
   email    String  @unique
   password String
   id       Int     @default(autoincrement()) @id
   name     String?
-  role     Roles?  @relation(fields: [idRole], references: [id])
+  role     Role?  @relation(fields: [idRole], references: [id])
 }
 
 model Cours {
@@ -29,21 +29,20 @@ model Cours {
   dateRedaction   Int?
   dateParution    Int?
   nbConssultation Int?
-  author          User?   @relation(fields: [idAuteur], references: [id])
+  author          Utilisateur?   @relation(fields: [idAuteur], references: [id])
 }
 
-model Roles {
+model Role {
   role      String?
   id        Int     @default(autoincrement()) @id
   title     String
-  author    User?   @relation(fields: [idAuteur], references: [id])
 }
 
-model Categories {
+model Categorie {
   idCategorieMere   Int?
   id                Int     @default(autoincrement()) @id
   libelle           String
-  categorieMere     Categories?   @relation(fields: [idCategorieMere], references: [id])
+  categorieMere     Categorie?   @relation(fields: [idCategorieMere], references: [id])
 }
 
 model notesCours {
@@ -53,14 +52,14 @@ model notesCours {
   annotation        String?
   date              Int?
   note              Int?
-  utilisateur       Utilisateurs?   @relation(fields: [idUtilisateur], references: [id])
+  utilisateur       Utilisateur?   @relation(fields: [idUtilisateur], references: [id])
   cour              Cours?   @relation(fields: [idCour], references: [id])
 }
 
-model coursCategories {
+model coursCategorie {
   idCategorie       Int?
   idCour            Int?
   id                Int     @default(autoincrement()) @id
-  categorie         Categories?   @relation(fields: [idCategorie], references: [id])
+  categorie         Categorie?   @relation(fields: [idCategorie], references: [id])
   cour              Cours?   @relation(fields: [idCour], references: [id])
 }
