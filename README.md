@@ -9,9 +9,9 @@ npm i
 Il faut également ajouter manuellement un fichier `.env` à la racine du projet avec en propriété `DATABASE_URL` comme par exemple :
 
 ```bash
-
+DATABASE_URL="mysql://root:@localhost:3306/markdown_app"
 ```
-
+Une base de donnée `MySQL` avec le nom `markdown_app` est requis pour le bon fonctionnement de l'application.
 ## Getting Started
 
 First, run the development server:
