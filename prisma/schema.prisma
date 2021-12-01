@@ -26,7 +26,7 @@ model Cours {
   contenuMd       String?
   resume          String?
   id              Int              @id @default(autoincrement())
-  estArchive      Boolean          @default(false)
+  estArchive      Boolean          @default(true)
   titre           String
   dateRedaction   Int?
   dateParution    Int?
@@ -39,7 +39,6 @@ model Cours {
 model Role {
   role        String?
   id          Int           @id @default(autoincrement())
-  title       String
   Utilisateur Utilisateur[]
 }
 
