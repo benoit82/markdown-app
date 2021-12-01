@@ -11,55 +11,62 @@ datasource db {
 }
 
 model Utilisateur {
-  idRole   Int?
-  email    String  @unique
-  password String
-  id       Int     @default(autoincrement()) @id
-  name     String?
-  role     Role?  @relation(fields: [idRole], references: [id])
+  idRole     Int?
+  email      String       @unique
+  password   String
+  id         Int          @id @default(autoincrement())
+  name       String?
+  role       Role?        @relation(fields: [idRole], references: [id])
+  Cours      Cours[]
+  notesCours notesCours[]
 }
 
 model Cours {
   idAuteur        Int?
   contenuMd       String?
   resume          String?
-  id              Int     @default(autoincrement()) @id
-  estArchive      Boolean @default(false)
+  id              Int              @id @default(autoincrement())
+  estArchive      Boolean          @default(false)
   titre           String
   dateRedaction   Int?
   dateParution    Int?
   nbConssultation Int?
-  author          Utilisateur?   @relation(fields: [idAuteur], references: [id])
+  author          Utilisateur?     @relation(fields: [idAuteur], references: [id])
+  notesCours      notesCours[]
+  coursCategorie  coursCategorie[]
 }
 
 model Role {
-  role      String?
-  id        Int     @default(autoincrement()) @id
-  title     String
+  role        String?
+  id          Int           @id @default(autoincrement())
+  title       String
+  Utilisateur Utilisateur[]
 }
 
 model Categorie {
-  idCategorieMere   Int?
-  id                Int     @default(autoincrement()) @id
-  libelle           String
-  categorieMere     Categorie?   @relation(fields: [idCategorieMere], references: [id])
+  idCategorieMere Int?
+  id              Int              @id @default(autoincrement())
+  libelle         String
+  categorieMere   Categorie?       @relation("CategorieHistory", fields: [idCategorieMere], references: [id])
+  Categorie       Categorie[]      @relation("CategorieHistory")
+  coursCategorie  coursCategorie[]
 }
 
 model notesCours {
-  idUtilisateur     Int?
-  idCour            Int?
-  id                Int     @default(autoincrement()) @id
-  annotation        String?
-  date              Int?
-  note              Int?
-  utilisateur       Utilisateur?   @relation(fields: [idUtilisateur], references: [id])
-  cour              Cours?   @relation(fields: [idCour], references: [id])
+  idUtilisateur Int?
+  idCour        Int?
+  id            Int          @id @default(autoincrement())
+  annotation    String?
+  date          Int?
+  note          Int?
+  utilisateur   Utilisateur? @relation(fields: [idUtilisateur], references: [id])
+  cour          Cours?       @relation(fields: [idCour], references: [id])
 }
 
 model coursCategorie {
-  idCategorie       Int?
-  idCour            Int?
-  id                Int     @default(autoincrement()) @id
-  categorie         Categorie?   @relation(fields: [idCategorie], references: [id])
-  cour              Cours?   @relation(fields: [idCour], references: [id])
+  idCategorie Int?
+  idCour      Int?
+  id          Int        @id @default(autoincrement())
+  categorie   Categorie? @relation(fields: [idCategorie], references: [id])
+  cour        Cours?     @relation(fields: [idCour], references: [id])
 }
