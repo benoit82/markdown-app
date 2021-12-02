@@ -14,7 +14,7 @@ const Input = (props) => {
 
 Input.propTypes = {
     labelText: PropTypes.string.isRequired,
-    type: PropTypes.oneOf(['text', 'password']).isRequired,
+    type: PropTypes.oneOf(['text', 'password', 'email']).isRequired,
     name: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,

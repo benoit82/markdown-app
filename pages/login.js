@@ -12,7 +12,7 @@ export default function Login() {
     const headProps = { pageTitle, metaName: 'LoginPage', metaContent: pageTitle };
 
     // TODO : resetUser = new Utilisateur(), to be implemented
-    const resetUser = { username: '', password: ''};
+    const resetUser = { email: '', password: ''};
     const [user, setUser] = useState(resetUser);
 
     const handleChange = ({target}) => {
@@ -31,21 +31,41 @@ export default function Login() {
         // TODO : envoyer les données users vers l'API
     }
 
-    const {username, password} = user;
+    const {email, password} = user;
     return (
     <div>
         <CustomHead {...headProps} />
         <main>
             <h1>{pageTitle}</h1>
-            <Form className={stylesForm.form} handleSubmit={handleSubmitForm}>
-                <Input name="username" labelText="Utilisateur" type="text" id="username" value={username} onChange={handleChange} required />
-                <Input name="password" labelText="mot de passe" type="password" id="password" value={password} onChange={handleChange} required />
+            <Form handleSubmit={handleSubmitForm}>
+                <Input 
+                    name="email"
+                    labelText="Utilisateur"
+                    type="email"
+                    id="name"
+                    value={email}
+                    onChange={handleChange}
+                    required
+                    />
+                <Input
+                    name="password"
+                    labelText="mot de passe"
+                    type="password"
+                    id="password"
+                    minLength="3"
+                    value={password}
+                    onChange={handleChange}
+                    required
+                    />
                 <div className={stylesForm.btnGroup}>
                     <Button type="submit" name="submitBtn" id="submitBtn" value="Envoyer" />
                 </div>
                 <div className={stylesForm.helperGroup}>
                     <Link href="/resetpassword">
-                        <a className={styles.lostPassword}>mot de passe perdu ?</a>
+                        <a className={styles.littleLink}>mot de passe perdu ?</a>
+                    </Link>
+                    <Link href="/inscription">
+                        <a className={styles.littleLink}>Inscription</a>
                     </Link>
                 </div>
             </Form>
