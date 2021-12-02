@@ -1,6 +1,7 @@
 .mdFrame {
     display: flex;
     column-gap: 2rem;
+    row-gap: 1rem;
     flex-wrap: wrap;
 }
 

@@ -1,7 +1,7 @@
 import CustomHead from '@components/CustomHead'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
-import styles from '@styles/cours/exemple.module.css'
+import styles from '@styles/cours/demo.module.css'
 import { useState } from 'react'
 
 const coursExemple = () => {
