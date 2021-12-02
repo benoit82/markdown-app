@@ -94,6 +94,8 @@ export interface NexusGenFieldTypes {
     titre: string | null; // String
   }
   Mutation: { // field return type
+    addCategorieMere: NexusGenRootTypes['Categorie'] | null; // Categorie
+    createCategorie: NexusGenRootTypes['Categorie'] | null; // Categorie
     createDraft: NexusGenRootTypes['Cours'] | null; // Cours
     deletePost: NexusGenRootTypes['Cours'] | null; // Cours
     publish: NexusGenRootTypes['Cours'] | null; // Cours
@@ -104,6 +106,7 @@ export interface NexusGenFieldTypes {
     drafts: Array<NexusGenRootTypes['Cours'] | null> | null; // [Cours]
     feed: Array<NexusGenRootTypes['Cours'] | null> | null; // [Cours]
     filterCours: Array<NexusGenRootTypes['Cours'] | null> | null; // [Cours]
+    utilisateurByEmail: NexusGenRootTypes['Utilisateur'] | null; // Utilisateur
   }
   Role: { // field return type
     Utilisateur: Array<NexusGenRootTypes['Utilisateur'] | null> | null; // [Utilisateur]
@@ -153,6 +156,8 @@ export interface NexusGenFieldTypeNames {
     titre: 'String'
   }
   Mutation: { // field return type name
+    addCategorieMere: 'Categorie'
+    createCategorie: 'Categorie'
     createDraft: 'Cours'
     deletePost: 'Cours'
     publish: 'Cours'
@@ -163,6 +168,7 @@ export interface NexusGenFieldTypeNames {
     drafts: 'Cours'
     feed: 'Cours'
     filterCours: 'Cours'
+    utilisateurByEmail: 'Utilisateur'
   }
   Role: { // field return type name
     Utilisateur: 'Utilisateur'
@@ -195,6 +201,13 @@ export interface NexusGenFieldTypeNames {
 
 export interface NexusGenArgTypes {
   Mutation: {
+    addCategorieMere: { // args
+      categorieId?: string | null; // String
+      categorieMereId?: string | null; // String
+    }
+    createCategorie: { // args
+      libelle: string; // String!
+    }
     createDraft: { // args
       authorEmail?: string | null; // String
       contentMd?: string | null; // String
@@ -218,6 +231,9 @@ export interface NexusGenArgTypes {
     }
     filterCours: { // args
       searchString?: string | null; // String
+    }
+    utilisateurByEmail: { // args
+      email: string; // String!
     }
   }
 }

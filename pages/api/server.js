@@ -201,6 +201,18 @@ const Query = objectType({
       },
     });
 
+    t.field("utilisateurByEmail", {
+      type: "Utilisateur",
+      args: {
+        email: stringArg({ nullable: false }),
+      },
+      resolve: (_, args) => {
+        return prisma.utilisateur.findOne({
+          where: { email: Number(args.email) },
+        });
+      },
+    });
+
     t.list.field("feed", {
       type: "Cours",
       resolve: (_parent, _args, ctx) => {
@@ -255,6 +267,34 @@ const Mutation = objectType({
             email,
             password,
           },
+        });
+      },
+    });
+
+    t.field("createCategorie", {
+      type: "Categorie",
+      args: {
+        libelle: stringArg({ nullable: false }),
+      },
+      resolve: (_, { libelle }, ctx) => {
+        return prisma.categorie.create({
+          data: {
+            libelle,
+          },
+        });
+      },
+    });
+
+    t.field("addCategorieMere", {
+      type: "Categorie",
+      args: {
+        categorieId: stringArg(),
+        categorieMereId: stringArg(),
+      },
+      resolve: (_, { categorieId, categorieMereId }, ctx) => {
+        return prisma.categorie.update({
+          where: { id: Number(categorieId) },
+          data: { idCategorieMere: Number(categorieMereId) },
         });
       },
     });
