@@ -6,6 +6,11 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+a.activeLink {
+  background-color: #06506d;
+  color: green;
+}
+
 .container {
   padding: 0 2rem;
   max-width: 100wh;
