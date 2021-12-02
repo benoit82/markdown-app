@@ -5,7 +5,7 @@ import Link from 'next/Link'
 import styles from '@styles/Login.module.css'
 import stylesForm from '@styles/forms.module.css'
 import CustomHead from '@components/CustomHead'
-import {Input, Button} from '@components/form'
+import { Form, Input, Button } from '@components/form'
 
 export default function Login() {
     const pageTitle = 'Page de connection';
@@ -37,7 +37,7 @@ export default function Login() {
         <CustomHead {...headProps} />
         <main>
             <h1>{pageTitle}</h1>
-            <form className={stylesForm.form} onSubmit={handleSubmitForm}>
+            <Form className={stylesForm.form} handleSubmit={handleSubmitForm}>
                 <Input name="username" labelText="Utilisateur" type="text" id="username" value={username} onChange={handleChange} required />
                 <Input name="password" labelText="mot de passe" type="password" id="password" value={password} onChange={handleChange} required />
                 <div className={stylesForm.btnGroup}>
@@ -48,7 +48,7 @@ export default function Login() {
                         <a className={styles.lostPassword}>mot de passe perdu ?</a>
                     </Link>
                 </div>
-            </form>
+            </Form>
         </main>
     </div>
   )

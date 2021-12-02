@@ -1,4 +1,5 @@
+import Form from "./Form";
 import Input from "./Input";
 import Button from "./Button";
 
-export { Input, Button };
+export { Form, Input, Button };
