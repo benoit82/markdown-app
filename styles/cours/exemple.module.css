@@ -1,0 +1,22 @@
+.mdFrame {
+    display: flex;
+    column-gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.section {
+    background-color: #e6e6e6;
+    padding: 1rem;
+    border-radius: 4px;
+    min-width: 40vw;
+    max-width: 100vw;
+}
+
+.textArea {
+    resize: none;
+    outline: none;
+    border: none;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+}
