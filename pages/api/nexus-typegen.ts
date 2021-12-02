@@ -210,7 +210,7 @@ export interface NexusGenArgTypes {
     }
     createDraft: { // args
       authorEmail?: string | null; // String
-      contentMd?: string | null; // String
+      contenuMd?: string | null; // String
       titre: string; // String!
     }
     deletePost: { // args
