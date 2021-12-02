@@ -68,7 +68,7 @@ export default function addCours() {
                     />
                 <TextArea 
                     name="contenuMd"
-                    labelText="résumé du cours"
+                    labelText="Contenu du cours en markdown"
                     id="contenuMd"
                     value={contenuMd}
                     onChange={handleChange}
