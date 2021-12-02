@@ -53,7 +53,7 @@ type Utilisateur {
 
 type coursCategorie {
   categorie: Categorie
-  cour: Cours
+  cours: Cours
   id: Int
 }
 

@@ -121,7 +121,7 @@ export interface NexusGenFieldTypes {
   }
   coursCategorie: { // field return type
     categorie: NexusGenRootTypes['Categorie'] | null; // Categorie
-    cour: NexusGenRootTypes['Cours'] | null; // Cours
+    cours: NexusGenRootTypes['Cours'] | null; // Cours
     id: number | null; // Int
   }
   notesCours: { // field return type
@@ -180,7 +180,7 @@ export interface NexusGenFieldTypeNames {
   }
   coursCategorie: { // field return type name
     categorie: 'Categorie'
-    cour: 'Cours'
+    cours: 'Cours'
     id: 'Int'
   }
   notesCours: { // field return type name
