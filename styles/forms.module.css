@@ -7,6 +7,12 @@
     row-gap: 2rem;
 }
 
+.textArea {
+    width: 100%;
+    resize: vertical;
+    min-height: 5rem;
+}
+
 .inputGroup {
     display: flex;
     flex-direction: column;

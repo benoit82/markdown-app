@@ -4,6 +4,7 @@ const ROUTES = [
         { title: 'Inscription', path: '/signup' },
         { title: 'cours (demo)', path: '/cours/demo' },
         { title: 'cours', path: '/cours/1' },
+        { title: 'ajouter un cours', path: '/admin/addcours' },
     ]
 
 export { ROUTES };
