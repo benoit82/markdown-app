@@ -4,7 +4,7 @@ import remarkGfm from 'remark-gfm'
 import styles from '@styles/cours/global.module.css'
 import PropTypes from 'prop-types'
 
-const coursDisplay = ({cours, id}) => {
+const coursDisplay = ({mdContent, id}) => {
     const pageTitle = `Cours - #${id}`;
     const headProps = { pageTitle, metaName: 'CoursPage', metaContent: pageTitle };
 
@@ -13,7 +13,7 @@ const coursDisplay = ({cours, id}) => {
         <CustomHead {...headProps} />
         <main className={styles.mainFrame}>
             <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                {cours}
+                {mdContent}
             </ReactMarkdown>
         </main>
     </>
@@ -22,18 +22,18 @@ const coursDisplay = ({cours, id}) => {
 
 export async function getServerSideProps({params}) {
     // TODO API call here
-    const cours = `## Cours n°${params.id}`;
+    const mdContent = `## Cours n°${params.id}`;
 
     return {
         props: {
-            cours,
+            mdContent,
             id: params.id,
         }
     }
 }
 
 coursDisplay.propTypes = {
-    cours: PropTypes.string,
+    mdContent: PropTypes.string,
     id: PropTypes.string,
 }
 
