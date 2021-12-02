@@ -173,7 +173,7 @@ const coursCategorie = objectType({
                 })
                 .categorie(),
           });
-        t.field("cour", {
+        t.field("cours", {
             type: "Cours",
             nullable: true,
             resolve: (parent) =>
@@ -187,7 +187,7 @@ const coursCategorie = objectType({
 });
 
 const Query = objectType({
-  name: "Query",
+  type: "Query",
   definition(t) {
     t.field("cours", {
       type: "Cours",
