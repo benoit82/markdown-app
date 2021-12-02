@@ -22,6 +22,8 @@ type Cours {
 }
 
 type Mutation {
+  addCategorieMere(categorieId: String, categorieMereId: String): Categorie
+  createCategorie(libelle: String!): Categorie
   createDraft(authorEmail: String, contentMd: String, titre: String!): Cours
   deletePost(coursId: String): Cours
   publish(coursId: String): Cours
@@ -33,6 +35,7 @@ type Query {
   drafts: [Cours]
   feed: [Cours]
   filterCours(searchString: String): [Cours]
+  utilisateurByEmail(email: String!): Utilisateur
 }
 
 type Role {
