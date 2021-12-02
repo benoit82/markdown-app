@@ -4,8 +4,10 @@
 
 .listGroup {
     display: flex;
+    flex-wrap: wrap;
     list-style: none;
     column-gap: 0.6rem;
+    row-gap: 1rem;
 }
 
 .listGroup li {
