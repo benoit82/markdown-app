@@ -5,8 +5,8 @@ import CustomHead from '@components/CustomHead'
 import { Form, Input, TextArea, Button } from '@components/form'
 
 export default function addCours() {
-    const pageTitle = 'Page de connexion';
-    const headProps = { pageTitle, metaName: 'LoginPage', metaContent: pageTitle };
+    const pageTitle = 'Formulaire d\'edition de cours';
+    const headProps = { pageTitle, metaName: 'CoursFormPage', metaContent: pageTitle };
 
     // TODO : resetUser = new Utilisateur(), to be implemented
     const resetCours = { contenuMd: '', resume: '', estArchive: false, titre: '', categorie: ''};
