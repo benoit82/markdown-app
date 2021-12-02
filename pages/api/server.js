@@ -317,15 +317,17 @@ const Mutation = objectType({
       args: {
         titre: stringArg({ nullable: false }),
         contenuMd: stringArg(),
+        resume: stringArg(),
         authorEmail: stringArg(),
       },
-      resolve: (_, { titre, contenuMd, authorEmail }, ctx) => {
+      resolve: (_, { titre, contenuMd, authorEmail, resume }, ctx) => {
         return prisma.cours.create({
     
           data: {
             titre,
             contenuMd,
-            dateRedaction: new Date( ).getTime(), 
+            resume,
+            dateRedaction: new Date().getTime(), 
             estArchive: true,
             author: {
               connect: { email: authorEmail },
