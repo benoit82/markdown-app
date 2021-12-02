@@ -5,7 +5,7 @@ const ResetPassword = () => {
         <>
             <p>Todo...</p>
             <Link href="/">
-                <a>retour à la page d'accueil</a>
+                <a>retour à la page accueil</a>
             </Link>
         </>
     )

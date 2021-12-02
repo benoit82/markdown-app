@@ -24,9 +24,11 @@ export default function Login() {
         setUser(resetUser);
     }
 
-    const handleSubmitForm = (event) => {
+    const handleSubmitForm = async (event) => {
         event.preventDefault();
-        console.log(user);
+        const userToApi = {... user};
+        // TODO : traitement userToApi avant envoi (trouver un moyen de crypter le mot de passe ?)
+        console.log('appel d\'envoi des données user :',userToApi);
         // TODO : envoyer les données users vers l'API
     }
 
@@ -52,3 +54,4 @@ export default function Login() {
     </div>
   )
 }
+
