@@ -8,14 +8,13 @@ export default function addCours() {
     const pageTitle = 'Formulaire d\'edition de cours';
     const headProps = { pageTitle, metaName: 'CoursFormPage', metaContent: pageTitle };
 
-    // TODO : resetUser = new Utilisateur(), to be implemented
     const resetCours = { contenuMd: '', resume: '', estArchive: false, titre: '', categorie: ''};
     const [cours, setCours] = useState(resetCours);
 
     const handleChange = ({target}) => setCours({...cours, [target.name]: target.value });
 
     const handleResetBtn = () => {
-        setUser(resetCours);
+        setCours(resetCours);
     }
 
     const handleSubmitForm = async (event) => {
@@ -76,7 +75,7 @@ export default function addCours() {
                     />
                 <div className={stylesForm.btnGroup}>
                     <Button type="submit" name="submitBtn" id="submitBtn" value="Envoyer" />
-                    <Button type="reset" name="resetBtn" id="resetBtn" value="Reset" onClick={handleResetBtn} />
+                    <Button type="button" name="resetBtn" id="resetBtn" value="Reset" onClick={handleResetBtn} />
                 </div>
             </Form>
         </main>

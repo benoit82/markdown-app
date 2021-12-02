@@ -3,11 +3,11 @@ import PropTypes from 'prop-types'
 
 const Input = (props) => {
 
-    const {labelText, name, ... inputProps} = props;
+    const {labelText, name, type, ... inputProps} = props;
     return (
-        <div className={stylesForm.inputGroup}>
+        <div className={stylesForm.inputGroup} style={{ flexDirection: type === 'checkbox' ? 'row' : 'column' }}>
             <label htmlFor={name}>{labelText}</label>
-            <input name={name} {... inputProps } />
+            <input name={name} type={type} {... inputProps } />
         </div>
     )
 }
