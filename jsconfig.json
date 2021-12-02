@@ -5,6 +5,7 @@
             "@styles/*": ["styles/*"],
             "@models/*": ["src/models/*"],
             "@apollo/*": ["apollo/*"],
+            "@components/*": ["components/*"],
         }
     }
 }
