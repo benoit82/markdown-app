@@ -5,6 +5,7 @@
             "@styles/*": ["styles/*"],
             "@apollo/*": ["apollo/*"],
             "@components/*": ["components/*"],
+            "@constants/*": ["constants/*"],
         },
     "target": "es5",
     "lib": [

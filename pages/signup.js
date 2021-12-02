@@ -7,12 +7,12 @@ import stylesForm from '@styles/forms.module.css'
 import CustomHead from '@components/CustomHead'
 import { Form, Input, Button } from '@components/form'
 
-export default function Login() {
-    const pageTitle = 'Page de connexion';
-    const headProps = { pageTitle, metaName: 'LoginPage', metaContent: pageTitle };
+export default function signUpUser() {
+    const pageTitle = 'Inscription';
+    const headProps = { pageTitle, metaName: 'SignUpPage', metaContent: pageTitle };
 
     // TODO : resetUser = new Utilisateur(), to be implemented
-    const resetUser = { email: '', password: ''};
+    const resetUser = { name: '', email: '', password: ''};
     const [user, setUser] = useState(resetUser);
 
     const handleChange = ({target}) => {
@@ -31,7 +31,7 @@ export default function Login() {
         // TODO : envoyer les données users vers l'API
     }
 
-    const {email, password} = user;
+    const {email, name, password} = user;
     return (
     <div>
         <CustomHead {...headProps} />
@@ -47,6 +47,15 @@ export default function Login() {
                     onChange={handleChange}
                     required
                     />
+                <Input 
+                    name="name"
+                    labelText="Utilisateur"
+                    type="text"
+                    id="name"
+                    value={name}
+                    onChange={handleChange}
+                    required
+                    />
                 <Input
                     name="password"
                     labelText="mot de passe"
@@ -59,14 +68,6 @@ export default function Login() {
                     />
                 <div className={stylesForm.btnGroup}>
                     <Button type="submit" name="submitBtn" id="submitBtn" value="Envoyer" />
-                </div>
-                <div className={stylesForm.helperGroup}>
-                    <Link href="/resetpassword">
-                        <a className={styles.littleLink}>mot de passe perdu ?</a>
-                    </Link>
-                    <Link href="/signup">
-                        <a className={styles.littleLink}>Inscription</a>
-                    </Link>
                 </div>
             </Form>
         </main>
