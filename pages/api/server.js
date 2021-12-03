@@ -16,7 +16,7 @@ const Utilisateur = objectType({
         type: 'Cours',
         resolve: parent =>
           prisma.utilisateur
-            .findOne({
+            .findUnique({
               where: { id: Number(parent.id) },
             })
             .Cours(),
@@ -25,7 +25,7 @@ const Utilisateur = objectType({
         type: 'notesCours',
         resolve: parent =>
           prisma.utilisateur
-            .findOne({
+            .findUnique({
               where: { id: Number(parent.id) },
             })
             .notesCours(),
@@ -35,7 +35,7 @@ const Utilisateur = objectType({
         nullable: true,
         resolve: (parent) =>
           prisma.utilisateur
-            .findOne({
+            .findUnique({
               where: { id: Number(parent.id) },
             })
             .role(),
@@ -69,7 +69,7 @@ const Cours = objectType({
       nullable: true,
       resolve: (parent) =>
         prisma.cours
-          .findOne({
+          .findUnique({
             where: { id: Number(parent.id) },
           })
           .author(),
@@ -88,7 +88,7 @@ const Role = objectType({
           type: 'Utilisateur',
           resolve: parent =>
             prisma.role
-              .findOne({
+              .findUnique({
                 where: { id: Number(parent.id) },
               })
               .Utilisateur(),
@@ -105,7 +105,7 @@ const Categorie = objectType({
           type: 'coursCategorie',
           resolve: parent =>
             prisma.categorie
-              .findOne({
+              .findUnique({
                 where: { id: Number(parent.id) },
               })
               .coursCategorie(),
@@ -115,7 +115,7 @@ const Categorie = objectType({
             nullable: true,
             resolve: (parent) =>
               prisma.categorie
-                .findOne({
+                .findUnique({
                   where: { id: Number(parent.id) },
                 })
                 .categorieMere(),
@@ -141,7 +141,7 @@ const notesCours = objectType({
             nullable: true,
             resolve: (parent) =>
               prisma.notesCours
-                .findOne({
+                .findUnique({
                   where: { id: Number(parent.id) },
                 })
                 .utilisateur(),
@@ -151,7 +151,7 @@ const notesCours = objectType({
             nullable: true,
             resolve: (parent) =>
               prisma.notesCours
-                .findOne({
+                .findUnique({
                   where: { id: Number(parent.id) },
                 })
                 .cour(),
@@ -168,7 +168,7 @@ const coursCategorie = objectType({
             nullable: true,
             resolve: (parent) =>
               prisma.coursCategorie
-                .findOne({
+                .findUnique({
                   where: { id: Number(parent.id) },
                 })
                 .categorie(),
@@ -178,7 +178,7 @@ const coursCategorie = objectType({
             nullable: true,
             resolve: (parent) =>
               prisma.coursCategorie
-                .findOne({
+                .findUnique({
                   where: { id: Number(parent.id) },
                 })
                 .cour(),
@@ -195,7 +195,7 @@ const Query = objectType({
         coursId: stringArg({ nullable: false }),
       },
       resolve: (_, args) => {
-        return prisma.cours.findOne({
+        return prisma.cours.findUnique({
           where: { id: Number(args.coursId) },
         });
       },
@@ -207,7 +207,7 @@ const Query = objectType({
         email: stringArg({ nullable: false }),
       },
       resolve: (_, args) => {
-        return prisma.utilisateur.findOne({
+        return prisma.utilisateur.findUnique({
           where: { email: Number(args.email) },
         });
       },
@@ -327,7 +327,7 @@ const Mutation = objectType({
             titre,
             contenuMd,
             resume,
-            dateRedaction: new Date().getTime(), 
+            dateRedaction: 123, 
             estArchive: true,
             author: {
               connect: { email: authorEmail },

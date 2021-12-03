@@ -24,7 +24,7 @@ type Cours {
 type Mutation {
   addCategorieMere(categorieId: String, categorieMereId: String): Categorie
   createCategorie(libelle: String!): Categorie
-  createDraft(authorEmail: String, contenuMd: String, titre: String!): Cours
+  createDraft(authorEmail: String, contenuMd: String, resume: String, titre: String!): Cours
   deletePost(coursId: String): Cours
   publish(coursId: String): Cours
   signupUser(email: String!, name: String, password: String!): Utilisateur
